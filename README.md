@@ -1,3 +1,5 @@
+<a id="readme-top"></a>
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -50,13 +52,13 @@
 
 ## About The Project
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
 [//]: # (* [![Vue.js][VueBadge]][VueUrl])
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -68,7 +70,7 @@
 
 ### Installation
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -76,7 +78,7 @@
 
 ## Usage
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -93,7 +95,7 @@
 [//]: # (    - [ ] Nested Feature)
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -101,7 +103,7 @@
 
 ## Contributing
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -109,9 +111,9 @@
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -119,10 +121,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Gabin Deboulogne - gabin.deboulogne@gmail.com - [@GabanDev](https://twitter.com/gabandev) - [![LinkedIn][linkedin-shield]]
-[linkedin-url]
+- [![Twitter][gmail-shield]][gmail-url]
+- [![LinkedIn][linkedin-shield]][linkedin-url]
+- [![Twitter][twitter-shield]][twitter-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -136,8 +139,10 @@ Gabin Deboulogne - gabin.deboulogne@gmail.com - [@GabanDev](https://twitter.com/
 
 [//]: # (* []&#40;&#41;)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
+
+---------------------------------------------------------------
 
 [VueBadge]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D
 
@@ -163,8 +168,16 @@ Gabin Deboulogne - gabin.deboulogne@gmail.com - [@GabanDev](https://twitter.com/
 
 [license-shield]: https://img.shields.io/github/license/gabann/ECF-2.svg?style=for-the-badge
 
-[license-url]: https://github.com/gabann/ECF-2/blob/master/LICENSE.txt
+[license-url]: https://github.com/gabann/ECF-2/blob/master/LICENSE
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 
 [linkedin-url]: https://linkedin.com/in/linkedin_username
+
+[twitter-shield]: https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white
+
+[twitter-url]: https://twitter.com/gabandev
+
+[gmail-shield]: https://img.shields.io/badge/Gmail-EA4335.svg?style=for-the-badge&logo=Gmail&logoColor=white
+
+[gmail-url]: mailto:gabin.deboulogne@gmail.com
