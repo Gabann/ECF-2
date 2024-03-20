@@ -9,7 +9,7 @@
 <h3 align="center">ECF 2</h3>
 
   <p align="center">
-    project_description 
+    A pokedex mobile app that let you track all your captured pokemons
     <br />
     <a href="https://github.com/gabann/ECF-2"><strong>Explore the docs »</strong></a>
     <br />
@@ -68,7 +68,29 @@
 
 ### Prerequisites
 
+This project requires:
+
+- [Node.js](https://nodejs.org/en) >= 18
+- [Microsoft open JDK](https://learn.microsoft.com/en-us/java/openjdk/download) 17
+- [Android studio](https://developer.android.com/studio)
+- [Android SDK](https://developer.android.com/tools/releases/platforms) 34
+
+Full instalation guide can be found [here](https://reactnative.dev/docs/environment-setup?guide=native)
+
 ### Installation
+
+```
+# Clone the project:
+git clone https://github.com/Gabann/ECF-2.git
+cd .\ECF-2
+
+# Install the dependencies:
+npm i
+
+# Running the application:
+npm run android
+
+```
 
 <p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,15 +125,30 @@
 
 ## Contributing
 
+We welcome contributions from everyone! Follow these steps to contribute:
+
+1. **Fork** the repository.
+2. **Clone** the forked repository to your local machine.
+3. **Create a new branch** for your contribution.
+4. **Make your changes** and **commit** them.
+5. **Push** your changes to your forked repository.
+6. **Open a pull request** to the main project repository.
+
+### Contribution Guidelines
+
+- Discuss significant changes by opening an issue first.
+- Follow the existing code style and structure.
+- Write clear commit messages and document your code.
+- Ensure changes don't break existing functionality.
+- Update documentation if necessary.
+
 <p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- LICENSE -->
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [`LICENSE`](https://github.com/Gabann/ECF-2/blob/main/LICENSE) for more information.
 
 <p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
