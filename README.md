@@ -56,7 +56,7 @@
 
 ### Built With
 
-[//]: # (* [![Vue.js][VueBadge]][VueUrl])
+[//]: # ([![Vue.js][VueBadge]][VueUrl])
 
 <p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
