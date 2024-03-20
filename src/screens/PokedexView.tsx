@@ -1,5 +1,5 @@
 import {FlatList, ScrollView} from "react-native";
-import {PokemonCard} from "./PokemonCard.tsx";
+import {PokemonCard} from "../components/PokemonCard.tsx";
 import {Pokemon} from "../classes/Pokemon.ts";
 import React from "react";
 import {useSelector} from "react-redux";

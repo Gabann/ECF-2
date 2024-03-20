@@ -2,6 +2,7 @@ import {Pokemon} from "../classes/Pokemon.ts";
 import {Dimensions, Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {NavigationProp, useNavigation} from "@react-navigation/native";
 import {RootStackParamList} from "../../App.tsx";
+import React from "react";
 
 type Props = {
 	pokemon: Pokemon;

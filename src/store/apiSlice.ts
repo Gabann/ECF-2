@@ -2,7 +2,7 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {Pokemon} from "../classes/Pokemon.ts";
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-const apiBaseUrl = 'https://tyradex.vercel.app/api/v1/';
+const apiBaseUrl: string = 'https://tyradex.vercel.app/api/v1/';
 
 export interface IPokemonSliceSate {
 	pokemonList: Pokemon[]
@@ -21,7 +21,7 @@ async function formatApiResponse(response: Response): Promise<Pokemon[]> {
 	}
 
 	for (let pokemon of data) {
-		let currentPokemon = new Pokemon(
+		let currentPokemon: Pokemon = new Pokemon(
 			pokemon.pokedex_id || 0,
 			pokemon.generation || 0,
 			pokemon.category || '',

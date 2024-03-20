@@ -6,6 +6,7 @@ import {useAppDispatch} from "../store/hooks.ts";
 import {togglePokemonCaptured} from "../store/pokedexSlice.ts";
 import {useSelector} from "react-redux";
 import {RootState} from "../store/store.ts";
+import React from "react";
 
 type RouteParams = {
 	pokemon: Pokemon;
@@ -32,13 +33,13 @@ export const PokemonDetails: React.FC = () => {
 				scrollEnabled={false}
 				data={pokemon.types}
 				renderItem={({item}) => <Text>{item.name}</Text>}
-				keyExtractor={(item, index) => item.name + index.toString()}
+				keyExtractor={(item, index: number) => item.name + index.toString()}
 			/>
 			<FlatList
 				scrollEnabled={false}
 				data={pokemon.talents}
 				renderItem={({item}) => <Text>{item.name}</Text>}
-				keyExtractor={(item, index) => item.name + index.toString()}
+				keyExtractor={(item, index: number) => item.name + index.toString()}
 			/>
 
 			<TouchableOpacity style={isCaptured ? styles.onStyle : styles.offStyle}

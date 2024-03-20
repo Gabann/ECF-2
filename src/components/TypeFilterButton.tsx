@@ -7,15 +7,15 @@ type Props = {
 }
 
 export const TypeFilterButton: React.FC<Props> = ({type, toggleTypeFilter}) => {
-	const [isOn, setIsOn] = useState(false);
+	const [isToggled, setIsToggled] = useState<boolean>(false);
 
-	const handlePress = () => {
-		setIsOn(!isOn);
+	function handlePress(): void {
+		setIsToggled(!isToggled);
 		toggleTypeFilter(type);
-	};
+	}
 
 	return (
-		<TouchableOpacity onPress={handlePress} style={[isOn ? styles.onStyle : styles.offStyle, styles.button]}>
+		<TouchableOpacity onPress={handlePress} style={[isToggled ? styles.onStyle : styles.offStyle, styles.button]}>
 			<Text style={styles.text}>{type}</Text>
 		</TouchableOpacity>
 	);

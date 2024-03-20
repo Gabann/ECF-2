@@ -3,12 +3,12 @@ import {Provider} from "react-redux";
 import {NavigationContainer} from "@react-navigation/native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {store} from "./src/store/store.ts";
-import {PokedexView} from "./src/components/PokedexView.tsx";
-import {PokemonList} from "./src/components/PokemonList.tsx";
+import {PokedexView} from "./src/screens/PokedexView.tsx";
+import {PokemonList} from "./src/screens/PokemonList.tsx";
 import {Debug} from "./src/components/Debug.tsx";
 import {Pokemon} from "./src/classes/Pokemon.ts";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import {PokemonDetails} from "./src/components/PokemonDetails.tsx";
+import {PokemonDetails} from "./src/screens/PokemonDetails.tsx";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator()

@@ -4,8 +4,8 @@ import {getAllPokemons} from "../store/apiSlice.ts";
 import {useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
 import {Pokemon} from "../classes/Pokemon.ts";
-import {PokemonCard} from "./PokemonCard.tsx";
-import {TypeFilterButton} from "./TypeFilterButton.tsx";
+import {PokemonCard} from "../components/PokemonCard.tsx";
+import {TypeFilterButton} from "../components/TypeFilterButton.tsx";
 import {pokemonTypes} from "../assets/globals.ts";
 import {RootState} from "../store/store.ts";
 
@@ -17,18 +17,18 @@ export const PokemonList = () => {
 	const [typeFilterList, setTypeFilterList] = useState<string[]>([]);
 	const [filteredList, setFilteredList] = useState<Pokemon[]>([]);
 
-	async function toggleTypeFilter(type: string) {
-		setTypeFilterList(prevTypes => {
-			if (prevTypes.includes(type)) {
-				return prevTypes.filter(t => t !== type);
+	async function toggleTypeFilter(typeToToggle: string): Promise<void> {
+		setTypeFilterList((previousList: string[]) => {
+			if (previousList.includes(typeToToggle)) {
+				return previousList.filter((type: string) => type !== typeToToggle);
 			} else {
-				return [...prevTypes, type];
+				return [...previousList, typeToToggle];
 			}
 		});
 	}
 
 	useEffect((): void => {
-		(async () => {
+		(async (): Promise<void> => {
 			try {
 				await dispatch(getAllPokemons()).unwrap();
 			} catch (error) {
@@ -42,13 +42,13 @@ export const PokemonList = () => {
 	}, [nameFilter, pokemonList, typeFilterList]);
 
 	function filterByNameAndId(pokemon: Pokemon, filterString: string): boolean {
-		let pokemonName = pokemon.name.fr.toUpperCase();
-		let pokemonId = pokemon.pokedex_id.toString();
+		let pokemonName: string = pokemon.name.fr.toUpperCase();
+		let pokemonId: string = pokemon.pokedex_id.toString();
 		return (pokemonName.includes(filterString) || pokemonId.startsWith(filterString));
 	}
 
 	function filterByType(pokemon: Pokemon, typeFilterList: string[]): boolean {
-		return typeFilterList.every((type) => {
+		return typeFilterList.every((type: string) => {
 			return pokemon.types.some((pokemonType) => {
 				return pokemonType.name === type;
 			});
@@ -56,8 +56,8 @@ export const PokemonList = () => {
 	}
 
 	function filterList(): void {
-		let temporaryList = pokemonList;
-		let filterString = nameFilter.trim().toUpperCase();
+		let temporaryList: Pokemon[] = pokemonList;
+		let filterString: string = nameFilter.trim().toUpperCase();
 
 		temporaryList = temporaryList.filter((pokemon) => filterByNameAndId(pokemon, filterString));
 		temporaryList = temporaryList.filter((pokemon) => filterByType(pokemon, typeFilterList));
@@ -65,7 +65,7 @@ export const PokemonList = () => {
 		setFilteredList(temporaryList)
 	}
 
-	function onNameFilterChange(text: string) {
+	function onNameFilterChange(text: string): void {
 		setNameFilter(text);
 	}
 
