@@ -1,47 +1,47 @@
-type Evolution = {
+export type Evolution = {
 	pokedex_id: number;
 	name: string;
 	condition: string;
 }
 
-type Name = {
+export type Name = {
 	fr: string
 	en: string,
 	jp: string
 }
 
-type Resistances = {
+export type Resistances = {
 	name: string;
 	multiplier: number;
 }
 
-type GenderRatio = {
+export type GenderRatio = {
 	male: number;
 	female: number;
 }
 
-type Form = {
+export type Form = {
 	region: string;
 	name: string;
 }
 
-type Sprites = {
+export type Sprites = {
 	regular: string;
 	shiny: string;
 	gmax: string;
 }
 
-type Types = {
+export type Types = {
 	name: string;
 	image: string;
 }
 
-type Talents = {
+export type Talents = {
 	name: string;
 	tc: boolean;
 }
 
-type Stats = {
+export type Stats = {
 	hp: number;
 	atk: number;
 	def: number;

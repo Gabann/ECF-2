@@ -24,9 +24,8 @@ export type RootStackParamList = {
 
 function PokedexScreen() {
 	return (
-		<PokedexStack.Navigator
-			screenOptions={{headerShown: false}}>
-			<PokedexStack.Screen name="PokedexView" component={PokedexView}/>
+		<PokedexStack.Navigator>
+			<PokedexStack.Screen name="PokedexView" component={PokedexView} options={{headerShown: false}}/>
 			<PokedexStack.Screen name="PokemonDetails" component={PokemonDetails}/>
 		</PokedexStack.Navigator>
 	);
@@ -34,9 +33,8 @@ function PokedexScreen() {
 
 function PokemonCollectionScreen() {
 	return (
-		<CollectionStack.Navigator
-			screenOptions={{headerShown: false}}>
-			<CollectionStack.Screen name="PokemonCollection" component={PokemonCollectionView}/>
+		<CollectionStack.Navigator>
+			<CollectionStack.Screen name="PokemonCollection" component={PokemonCollectionView} options={{headerShown: false}}/>
 			<CollectionStack.Screen name="PokemonDetails" component={PokemonDetails}/>
 		</CollectionStack.Navigator>
 	);
