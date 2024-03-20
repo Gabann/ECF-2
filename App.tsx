@@ -4,13 +4,14 @@ import {NavigationContainer} from "@react-navigation/native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {store} from "./src/store/store.ts";
 import {PokedexView} from "./src/screens/PokedexView.tsx";
-import {PokemonList} from "./src/screens/PokemonList.tsx";
 import {Debug} from "./src/components/Debug.tsx";
 import {Pokemon} from "./src/classes/Pokemon.ts";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {PokemonDetails} from "./src/screens/PokemonDetails.tsx";
+import {PokemonCollectionView} from "./src/screens/PokemonCollectionView.tsx";
 
-const Stack = createNativeStackNavigator();
+const PokedexStack = createNativeStackNavigator();
+const CollectionStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator()
 
 export type RootStackParamList = {
@@ -18,6 +19,26 @@ export type RootStackParamList = {
 		pokemon: Pokemon;
 	};
 };
+
+function PokedexScreen() {
+	return (
+		<PokedexStack.Navigator
+			screenOptions={{headerShown: false}}>
+			<PokedexStack.Screen name="PokedexView" component={PokedexView}/>
+			<PokedexStack.Screen name="PokemonDetails" component={PokemonDetails}/>
+		</PokedexStack.Navigator>
+	);
+}
+
+function PokemonCollectionScreen() {
+	return (
+		<PokedexStack.Navigator
+			screenOptions={{headerShown: false}}>
+			<PokedexStack.Screen name="PokemonCollection" component={PokemonCollectionView}/>
+			<PokedexStack.Screen name="PokemonDetails" component={PokemonDetails}/>
+		</PokedexStack.Navigator>
+	);
+}
 
 export default function App(): React.JSX.Element {
 	return (
@@ -29,22 +50,18 @@ export default function App(): React.JSX.Element {
 						headerShown: false
 					}}>
 						<Tab.Screen
-							name='PokemonList'
-							component={PokemonList}
+							name='Pokedex'
+							component={PokedexScreen}
 							options={{
-								tabBarLabel: "Pokemon list"
+								tabBarLabel: "Pokedex"
 							}}
 						/>
 						<Tab.Screen
-							name='PokedexView'
-							component={PokedexView}
+							name='PokemonCollection'
+							component={PokemonCollectionScreen}
 							options={{
-								tabBarLabel: "My pokedex"
+								tabBarLabel: "My collection"
 							}}
-						/>
-						<Tab.Screen
-							name='PokemonDetails'
-							component={PokemonDetails}
 						/>
 					</Tab.Navigator>
 				</Provider>
