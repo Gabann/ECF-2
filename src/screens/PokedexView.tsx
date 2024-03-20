@@ -17,7 +17,6 @@ export const PokedexView = () => {
 	const [typeFilterList, setTypeFilterList] = useState<string[]>([]);
 	const [filteredList, setFilteredList] = useState<Pokemon[]>([]);
 
-
 	async function toggleTypeFilter(typeToToggle: string): Promise<void> {
 		setTypeFilterList((previousList: string[]) => {
 			if (previousList.includes(typeToToggle)) {

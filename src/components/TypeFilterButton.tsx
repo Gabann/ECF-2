@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 		opacity: 1,
 	},
 	offStyle: {
-		opacity: 0.5,
+		opacity: 0.25,
 	},
 	button: {
 		borderRadius: 5,

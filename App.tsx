@@ -9,6 +9,8 @@ import {Pokemon} from "./src/classes/Pokemon.ts";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {PokemonDetails} from "./src/screens/PokemonDetails.tsx";
 import {PokemonCollectionView} from "./src/screens/PokemonCollectionView.tsx";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+
 
 const PokedexStack = createNativeStackNavigator();
 const CollectionStack = createNativeStackNavigator();
@@ -32,11 +34,11 @@ function PokedexScreen() {
 
 function PokemonCollectionScreen() {
 	return (
-		<PokedexStack.Navigator
+		<CollectionStack.Navigator
 			screenOptions={{headerShown: false}}>
-			<PokedexStack.Screen name="PokemonCollection" component={PokemonCollectionView}/>
-			<PokedexStack.Screen name="PokemonDetails" component={PokemonDetails}/>
-		</PokedexStack.Navigator>
+			<CollectionStack.Screen name="PokemonCollection" component={PokemonCollectionView}/>
+			<CollectionStack.Screen name="PokemonDetails" component={PokemonDetails}/>
+		</CollectionStack.Navigator>
 	);
 }
 
@@ -46,21 +48,23 @@ export default function App(): React.JSX.Element {
 			<NavigationContainer>
 				<Provider store={store}>
 					<Tab.Navigator screenOptions={{
-						tabBarActiveTintColor: "blue",
+						tabBarActiveTintColor: "red",
 						headerShown: false
 					}}>
 						<Tab.Screen
-							name='Pokedex'
+							name='PokedexTab'
 							component={PokedexScreen}
 							options={{
-								tabBarLabel: "Pokedex"
+								tabBarLabel: "Pokedex",
+								tabBarIcon: ({color, size}) => (<Icon name="pokeball" size={size} color={color}/>),
 							}}
 						/>
 						<Tab.Screen
-							name='PokemonCollection'
+							name='PokemonCollectionTab'
 							component={PokemonCollectionScreen}
 							options={{
-								tabBarLabel: "My collection"
+								tabBarLabel: "My collection",
+								tabBarIcon: ({color, size}) => (<Icon name="folder" size={size} color={color}/>)
 							}}
 						/>
 					</Tab.Navigator>
