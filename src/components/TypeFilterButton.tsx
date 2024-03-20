@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {typeColors} from "../assets/globals.ts";
 
 type Props = {
 	type: string;
@@ -15,7 +16,8 @@ export const TypeFilterButton: React.FC<Props> = ({type, toggleTypeFilter}) => {
 	}
 
 	return (
-		<TouchableOpacity onPress={handlePress} style={[isToggled ? styles.onStyle : styles.offStyle, styles.button]}>
+		<TouchableOpacity onPress={handlePress}
+		                  style={[isToggled ? styles.onStyle : styles.offStyle, styles.button, {backgroundColor: typeColors[type]}]}>
 			<Text style={styles.text}>{type}</Text>
 		</TouchableOpacity>
 	);
@@ -23,10 +25,10 @@ export const TypeFilterButton: React.FC<Props> = ({type, toggleTypeFilter}) => {
 
 const styles = StyleSheet.create({
 	onStyle: {
-		backgroundColor: 'green',
+		opacity: 1,
 	},
 	offStyle: {
-		backgroundColor: 'red',
+		opacity: 0.5,
 	},
 	button: {
 		borderRadius: 5,

@@ -17,6 +17,7 @@ export const PokemonList = () => {
 	const [typeFilterList, setTypeFilterList] = useState<string[]>([]);
 	const [filteredList, setFilteredList] = useState<Pokemon[]>([]);
 
+
 	async function toggleTypeFilter(typeToToggle: string): Promise<void> {
 		setTypeFilterList((previousList: string[]) => {
 			if (previousList.includes(typeToToggle)) {
@@ -72,7 +73,7 @@ export const PokemonList = () => {
 	return (
 		<ScrollView>
 			<TextInput
-				style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+				style={{height: 40, borderColor: 'gray', borderWidth: 1,}}
 				onChangeText={text => onNameFilterChange(text)}
 				value={nameFilter}
 			/>

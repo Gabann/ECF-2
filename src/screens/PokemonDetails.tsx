@@ -17,6 +17,7 @@ export const PokemonDetails: React.FC = () => {
 	const dispatch = useAppDispatch();
 	const isCaptured: boolean = useSelector((state: RootState) => state.pokedexSlice.capturedPokemonList.includes(pokemon.pokedex_id));
 
+
 	return (
 		<View style={[GlobalStyles.horizontalCenter, GlobalStyles.verticalCenter]}>
 			<Image
