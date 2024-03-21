@@ -9,6 +9,7 @@ type Props = {
 }
 
 export const PokemonDetailsStats: React.FC<Props> = ({pokemon}) => {
+	//TODO export stats to a separate component
 	return (
 		<>
 			{/*Null check for pokemon.stats*/}

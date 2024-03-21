@@ -16,20 +16,18 @@ export const PokemonCollectionView = () => {
 		[pokemonList, capturedPokemonIdList],
 	);
 
-	useEffect((): void => {
-		(async (): Promise<void> => {
-			try {
-				await dispatch(loadPokemonList());
-			} catch (error) {
-				console.error('Failed to fetch pokemon collection: ', error);
-			}
-		})();
+	useEffect(() => {
+		dispatch(loadPokemonList()).catch(error => console.error('Failed to fetch pokemon collection: ', error));
 	}, []);
 
+	//TODO add the filters to the collection view
 	return (
 		<View style={styles.container}>
 			{capturedPokemonList.length > 0 ? (
-				<PokemonList pokemonList={capturedPokemonList}/>
+				<View>
+					<Text style={styles.text}>Ma collection</Text>
+					<PokemonList pokemonList={capturedPokemonList}/>
+				</View>
 			) : (
 				<Text style={styles.text}>Vous n'avez pas encore de pokemons dans votre collection</Text>
 			)}

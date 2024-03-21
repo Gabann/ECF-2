@@ -29,17 +29,21 @@ export const PokemonCard: React.FC<Props> = (
 		});
 	}
 
-	let colors = ['#FFFFFF', '#FFFFFF'];
+	function getGradientColors() {
+		let colors = ['#FFFFFF', '#FFFFFF'];
 
-	if (pokemon.types.length > 0) {
-		colors[0] = typeColors[pokemon.types[0].name];
-		colors[1] = pokemon.types.length < 2 ? colors[0] : typeColors[pokemon.types[1].name];
+		if (pokemon.types.length > 0) {
+			colors[0] = typeColors[pokemon.types[0].name];
+			colors[1] = pokemon.types.length < 2 ? colors[0] : typeColors[pokemon.types[1].name];
+		}
+
+		return colors;
 	}
 
 	return (
 		<TouchableOpacity onPress={handlePress}>
 			<LinearGradient
-				colors={colors}
+				colors={getGradientColors()}
 				style={[styles.view, {width: componentWidth, height: componentHeight}]}
 				start={{x: 0, y: 0}}
 				end={{x: 1, y: 1}}

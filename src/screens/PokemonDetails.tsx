@@ -1,6 +1,6 @@
 import {FlatList, Image, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View} from 'react-native';
 import {TabBar, TabView} from 'react-native-tab-view';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Pokemon} from '../classes/Pokemon.ts';
 import {useRoute} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -53,21 +53,14 @@ export const PokemonDetails = () => {
 	const layout = useWindowDimensions();
 
 	const [routeIndex, setRouteIndex] = useState(0);
-	const [routes, setRoutes] = useState([
+	const [routes] = useState([
 		{key: 'About', title: 'A propos'},
 		{key: 'Stats', title: 'Statistiques'},
 		{key: 'Evolutions', title: 'Evolutions'},
-	]);
-
-	useEffect(() => {
-		if ((Object.keys(pokemon.stats).length <= 0)) {
-			setRoutes(routes.filter(currentRoute => currentRoute.key !== 'Stats'));
-
-		}
-		if ((Object.keys(pokemon.evolution).length <= 0)) {
-			setRoutes(routes.filter(currentRoute => currentRoute.key !== 'Evolutions'));
-		}
-	}, [pokemon]);
+	].filter(route =>
+		(route.key !== 'Stats' || Object.keys(pokemon.stats).length > 0) &&
+		(route.key !== 'Evolutions' || Object.keys(pokemon.evolution).length > 0)
+	));
 
 	function hexToRgba(hex: string, opacity: number) {
 		const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -88,9 +81,7 @@ export const PokemonDetails = () => {
 	return (
 		<>
 			<View style={[styles.container, {backgroundColor: backgroundColor}]}>
-				<TouchableOpacity style={[styles.shinyButton]} onPress={() => {
-					setIsShiny(!isShiny);
-				}}>
+				<TouchableOpacity style={[styles.shinyButton]} onPress={() => setIsShiny(!isShiny)}>
 					<Icon name={isShiny ? 'star' : 'star-outline'} size={20} color={'black'}/>
 				</TouchableOpacity>
 

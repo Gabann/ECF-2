@@ -27,48 +27,26 @@ export const PokedexView = () => {
 		});
 	}
 
-	useEffect((): void => {
-		(async (): Promise<void> => {
-			try {
-				await dispatch(getAllPokemons());
-			} catch (error) {
-				console.error('Failed to fetch pokemons list: ', error);
-			}
-		})();
+	useEffect(() => {
+		dispatch(getAllPokemons()).catch(error => console.error('Failed to fetch pokemons list: ', error));
 	}, []);
 
-	useEffect((): void => {
-		filterList();
-	}, [nameFilter, pokemonList, typeFilterList]);
-
-	function filterByNameAndId(pokemon: Pokemon, filterString: string): boolean {
-		let pokemonName: string = pokemon.name.fr.toUpperCase();
-		let pokemonId: string = pokemon.pokedex_id.toString();
-		return (pokemonName.includes(filterString) || pokemonId.startsWith(filterString));
-	}
-
-	function filterByType(pokemon: Pokemon): boolean {
-		return typeFilterList.every((type: string) => {
-			return pokemon.types.some((pokemonType) => {
-				return pokemonType.name === type;
-			});
-		});
-	}
-
-	function filterList(): void {
-		let temporaryList: Pokemon[] = pokemonList;
+	useEffect(() => {
 		let filterString: string = nameFilter.trim().toUpperCase();
 
-		temporaryList = temporaryList.filter((pokemon) => filterByNameAndId(pokemon, filterString));
-		temporaryList = temporaryList.filter((pokemon) => filterByType(pokemon));
-
-		setFilteredList(temporaryList);
-	}
+		setFilteredList(pokemonList.filter((pokemon) => {
+			let pokemonName: string = pokemon.name.fr.toUpperCase();
+			let pokemonId: string = pokemon.pokedex_id.toString();
+			return (pokemonName.includes(filterString) || pokemonId.startsWith(filterString)) &&
+				typeFilterList.every((type: string) => pokemon.types.some((pokemonType) => pokemonType.name === type));
+		}));
+	}, [nameFilter, pokemonList, typeFilterList]);
 
 	function onNameFilterChange(text: string): void {
 		setNameFilter(text);
 	}
 
+	//TODO add the filters to the pokemon collection view
 	return (
 		<View style={[GlobalStyles.verticalCenter, GlobalStyles.horizontalCenter, {paddingTop: 15}]}>
 			<View style={styles.typeList}>
@@ -82,12 +60,10 @@ export const PokedexView = () => {
 				value={nameFilter}
 				placeholder={'Nom ou numéro du pokémon'}/>
 
-
 			<PokemonList pokemonList={filteredList}/>
 		</View>
 	);
 };
-
 const styles = StyleSheet.create({
 	typeList: {
 		justifyContent: 'center',
