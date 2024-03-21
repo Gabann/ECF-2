@@ -1,3 +1,4 @@
+<!--suppress ALL, HtmlUnknownAnchorTarget -->
 <a id="readme-top"></a>
 
 [![Contributors][contributors-shield]][contributors-url]
@@ -7,6 +8,8 @@
 [![MIT License][license-shield]][license-url]
 
 <h3 align="center">ECF 2</h3>
+
+
 
 <div style="text-align:center">
   <p>
@@ -59,7 +62,8 @@ manage a collection of captured pokemons.
 ### Features
 
 - **Browse Pokemon**: Explore detailed information about all Pokemon species, including their types, stats, evolution line and more.
-- **Search Functionality**: Easily search for specific Pokémon by name, Pokédex number or by their types.
+- **Search Functionality**: Easily search for specific Pokémon by name, Pokédex number or by their types. For performance the data is
+  store locally and the search is done on the local data.
 - **Manage collection**: Save your captured pokemons for keep track of your progress to catch them all.
 - **Offline Mode**: You only need to run the app once with internet connection, and then you can browse the pokedex and manage your
   collection offline.
@@ -78,7 +82,7 @@ Tech stack:
 Data from [Tyradex](https://tyradex.tech/) API
 
 
-<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
+<div style="text-align:right"><a href="#readme-top">back to top</a></div>
 
 
 
@@ -95,7 +99,7 @@ This project requires:
 - [Android studio](https://developer.android.com/studio)
 - [Android SDK](https://developer.android.com/tools/releases/platforms) 34
 
-Full instalation guide can be found [here](https://reactnative.dev/docs/environment-setup?guide=native)
+Full installation guide can be found [here](https://reactnative.dev/docs/environment-setup?guide=native)
 
 ### Installation
 
@@ -111,7 +115,7 @@ npm i
 npm run android
 ```
 
-<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
+<div style="text-align:right"><a href="#readme-top">back to top</a></div>
 
 
 
@@ -121,7 +125,7 @@ npm run android
 
 Connect your android device or emulator and run the app with `npm run android`
 
-<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
+<div style="text-align:right"><a href="#readme-top">back to top</a></div>
 
 <!-- PREVIEW -->
 
@@ -135,10 +139,11 @@ Connect your android device or emulator and run the app with `npm run android`
 - [ ] Light & Dark mode
 - [ ] Polish style to flat, modern design
 - [ ] Options to order pokemons by name, type, etc
+- [ ] Add a way to update the data if the api is updated
 
 [//]: # (    - [ ] Nested Feature)
 
-<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
+<div style="text-align:right"><a href="#readme-top">back to top</a></div>
 
 
 
@@ -163,7 +168,7 @@ We welcome contributions from everyone! Follow these steps to contribute:
 - Ensure changes don't break existing functionality.
 - Update documentation if necessary.
 
-<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
+<div style="text-align:right"><a href="#readme-top">back to top</a></div>
 
 <!-- LICENSE -->
 
@@ -171,7 +176,7 @@ We welcome contributions from everyone! Follow these steps to contribute:
 
 Distributed under the MIT License. See [`LICENSE`](https://github.com/Gabann/ECF-2/blob/main/LICENSE) for more information.
 
-<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
+<div style="text-align:right"><a href="#readme-top">back to top</a></div>
 
 
 
@@ -183,7 +188,7 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/Gabann/ECF
 - [![LinkedIn][linkedin-shield]][linkedin-url]
 - [![Twitter][twitter-shield]][twitter-url]
 
-<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
+<div style="text-align:right"><a href="#readme-top">back to top</a></div>
 
 
 ---------------------------------------------------------------
