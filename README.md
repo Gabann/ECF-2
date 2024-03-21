@@ -135,6 +135,15 @@ Connect your android device or emulator and run the app with `npm run android`
 
 ## Preview
 
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <img src="./documentation/preview/Screenshot_1711037047.png" alt="App Screenshot" width="300"/>
+  <img src="./documentation/preview/Screenshot_1711037079.png" alt="App Screenshot" width="300"/>
+  <img src="./documentation/preview/Screenshot_1711037063.png" alt="App Screenshot" width="300"/>
+  <img src="./documentation/preview/Screenshot_1711037055.png" alt="App Screenshot" width="300"/>
+  <img src="./documentation/preview/Screenshot_1711037057.png" alt="App Screenshot" width="300"/>
+  <img src="./documentation/preview/Screenshot_1711037165.png" alt="App Screenshot" width="300"/>
+</div>
+
 <!-- ROADMAP -->
 
 ## Roadmap
