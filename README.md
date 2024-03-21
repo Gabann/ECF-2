@@ -11,11 +11,11 @@
 
 
 
-<div style="text-align:center">
+<div align="center">
   <p>
     An android app that let explore a pokedex and track all your captured pokemons
     <br />
-    <a href="https://github.com/gabann/ECF-2"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Gabann/ECF-2/tree/69091fd8c1a8b580d59ac3888c192f47f9ec7ae2/documentation"><strong>Explore the docs »</strong></a>
     <br />
     <a href="https://github.com/gabann/ECF-2/issues">Report Bug</a>
     ·
@@ -43,6 +43,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#preview">Preview</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -82,7 +83,7 @@ Tech stack:
 Data from [Tyradex](https://tyradex.tech/) API
 
 
-<div style="text-align:right"><a href="#readme-top">back to top</a></div>
+<div align="right"><a href="#readme-top">back to top</a></div>
 
 
 
@@ -115,7 +116,7 @@ npm i
 npm run android
 ```
 
-<div style="text-align:right"><a href="#readme-top">back to top</a></div>
+<div align="right"><a href="#readme-top">back to top</a></div>
 
 
 
@@ -125,7 +126,7 @@ npm run android
 
 Connect your android device or emulator and run the app with `npm run android`
 
-<div style="text-align:right"><a href="#readme-top">back to top</a></div>
+<div align="right"><a href="#readme-top">back to top</a></div>
 
 <!-- PREVIEW -->
 
@@ -143,7 +144,7 @@ Connect your android device or emulator and run the app with `npm run android`
 
 [//]: # (    - [ ] Nested Feature)
 
-<div style="text-align:right"><a href="#readme-top">back to top</a></div>
+<div align="right"><a href="#readme-top">back to top</a></div>
 
 
 
@@ -168,7 +169,7 @@ We welcome contributions from everyone! Follow these steps to contribute:
 - Ensure changes don't break existing functionality.
 - Update documentation if necessary.
 
-<div style="text-align:right"><a href="#readme-top">back to top</a></div>
+<div align="right"><a href="#readme-top">back to top</a></div>
 
 <!-- LICENSE -->
 
@@ -176,7 +177,7 @@ We welcome contributions from everyone! Follow these steps to contribute:
 
 Distributed under the MIT License. See [`LICENSE`](https://github.com/Gabann/ECF-2/blob/main/LICENSE) for more information.
 
-<div style="text-align:right"><a href="#readme-top">back to top</a></div>
+<div align="right"><a href="#readme-top">back to top</a></div>
 
 
 
@@ -188,7 +189,7 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/Gabann/ECF
 - [![LinkedIn][linkedin-shield]][linkedin-url]
 - [![Twitter][twitter-shield]][twitter-url]
 
-<div style="text-align:right"><a href="#readme-top">back to top</a></div>
+<div align="right"><a href="#readme-top">back to top</a></div>
 
 
 ---------------------------------------------------------------
