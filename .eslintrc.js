@@ -8,5 +8,6 @@ module.exports = {
 		'no-trailing-spaces': 'off',
 		'react/react-in-jsx-scope': 'off',
 		'react-native/no-inline-styles': 'off',
+		'react-hooks/exhaustive-deps': 'off',
 	},
 };

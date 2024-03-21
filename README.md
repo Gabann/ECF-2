@@ -8,8 +8,9 @@
 
 <h3 align="center">ECF 2</h3>
 
-  <p align="center">
-    A pokedex mobile app that let you track all your captured pokemons
+<div style="text-align:center">
+  <p>
+    An android app that let explore a pokedex and track all your captured pokemons
     <br />
     <a href="https://github.com/gabann/ECF-2"><strong>Explore the docs »</strong></a>
     <br />
@@ -17,6 +18,7 @@
     ·
     <a href="https://github.com/gabann/ECF-2/issues">Request Feature</a>
   </p>
+</div>
 
 
 
@@ -42,23 +44,41 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+## About the Project
 
-<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
+This app as been built in 2 days as part of an exam for my study at [M2I](https://www.m2iformation.fr/).
+
+The goal was to create a mobile app using React Native that consume an API to display a list of pokemons and let the user
+manage a collection of captured pokemons.
+
+### Features
+
+- **Browse Pokemon**: Explore detailed information about all Pokemon species, including their types, stats, evolution line and more.
+- **Search Functionality**: Easily search for specific Pokémon by name, Pokédex number or by their types.
+- **Manage collection**: Save your captured pokemons for keep track of your progress to catch them all.
+- **Offline Mode**: You only need to run the app once with internet connection, and then you can browse the pokedex and manage your
+  collection offline.
 
 ### Built With
 
-[//]: # ([![Vue.js][VueBadge]][VueUrl])
+Tech stack:
 
-<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
+[![React][ReactBadge]][ReactUrl]
+[![React native][ReactNativeBadge]][ReactNativeUrl]
+[![Redux][ReduxBadge]][ReduxUrl]
+[![Typescript][TypescriptBadge]][TypescriptUrl]
+[![Android Studio][AndroidStudioBadge]][AndroidStudioUrl]
+[![Node.js][NodeBadge]][NodeUrl]
+
+Data from [Tyradex](https://tyradex.tech/) API
+
+
+<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
 
 
 
@@ -89,10 +109,9 @@ npm i
 
 # Running the application:
 npm run android
-
 ```
 
-<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
 
 
 
@@ -100,24 +119,26 @@ npm run android
 
 ## Usage
 
-<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
+Connect your android device or emulator and run the app with `npm run android`
 
+<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
 
+<!-- PREVIEW -->
+
+## Preview
 
 <!-- ROADMAP -->
 
 ## Roadmap
 
-[//]: # (- [ ] Feature 1)
-
-[//]: # (- [ ] Feature 2)
-
-[//]: # (- [ ] Feature 3)
+- [ ] IOS port
+- [ ] Light & Dark mode
+- [ ] Polish style to flat, modern design
+- [ ] Options to order pokemons by name, type, etc
 
 [//]: # (    - [ ] Nested Feature)
 
-
-<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
 
 
 
@@ -142,7 +163,7 @@ We welcome contributions from everyone! Follow these steps to contribute:
 - Ensure changes don't break existing functionality.
 - Update documentation if necessary.
 
-<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
 
 <!-- LICENSE -->
 
@@ -150,7 +171,7 @@ We welcome contributions from everyone! Follow these steps to contribute:
 
 Distributed under the MIT License. See [`LICENSE`](https://github.com/Gabann/ECF-2/blob/main/LICENSE) for more information.
 
-<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
 
 
 
@@ -162,28 +183,34 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/Gabann/ECF
 - [![LinkedIn][linkedin-shield]][linkedin-url]
 - [![Twitter][twitter-shield]][twitter-url]
 
-<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-[//]: # (* []&#40;&#41;)
-
-[//]: # (* []&#40;&#41;)
-
-[//]: # (* []&#40;&#41;)
-
-<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
 
 
 ---------------------------------------------------------------
 
-[VueBadge]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D
+[ReactBadge]: https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=for-the-badge
 
-[VueUrl]: https://vuejs.org/
+[ReactUrl]: https://react.dev/
+
+[ReactNativeBadge]: https://img.shields.io/badge/ReactNative-61DAFB?logo=react&logoColor=000&style=for-the-badge
+
+[ReactNativeUrl]: https://reactnative.dev/
+
+[ReduxBadge]: https://img.shields.io/badge/Redux-764ABC?logo=redux&logoColor=white&style=for-the-badge
+
+[ReduxUrl]: https://redux.js.org/
+
+[TypescriptBadge]: https://img.shields.io/badge/Typescript-3178C6?logo=typescript&logoColor=white&style=for-the-badge
+
+[TypescriptUrl]: https://www.typescriptlang.org/
+
+[AndroidStudioBadge]: https://img.shields.io/badge/AndroidStudio-3DDC84?logo=android-studio&logoColor=white&style=for-the-badge
+
+[AndroidStudioUrl]: https://developer.android.com/studio
+
+[NodeBadge]: https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white&style=for-the-badge
+
+[NodeUrl]: https://nodejs.org/
 
 [repo-link]: https://github.com/Gabann/ECF-2
 

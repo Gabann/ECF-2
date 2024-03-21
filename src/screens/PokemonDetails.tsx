@@ -1,118 +1,136 @@
 import {FlatList, Image, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View} from 'react-native';
-import {SceneMap, TabView} from 'react-native-tab-view';
-import React, {useState} from 'react';
-import {PokemonDetailsAbout} from '../components/PokemonDetailsAbout.tsx';
+import {TabView} from 'react-native-tab-view';
+import React, {useEffect, useState} from 'react';
 import {Pokemon} from '../classes/Pokemon.ts';
 import {useRoute} from '@react-navigation/native';
-import {PokemonDetailsStats} from '../components/PokemonDetailsStats.tsx';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {GlobalStyles} from '../assets/globalStyles.ts';
 import {togglePokemonCaptured} from '../store/collectionSlice.ts';
-import {TypeCard} from '../components/TypeCard.tsx';
 import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
 import {RootState} from '../store/store.ts';
-import {PokemonDetailsEvolution} from '../components/PokemonDetailsEvolution.tsx';
+import {PokemonDetailsAbout} from '../components/pokemonDetails/PokemonDetailsAbout.tsx';
+import {PokemonDetailsStats} from '../components/pokemonDetails/PokemonDetailsStats.tsx';
+import {PokemonDetailsEvolution} from '../components/pokemonDetails/PokemonDetailsEvolution.tsx';
+import {TypeCard} from '../components/pokemonDetails/TypeCard.tsx';
 
 type RouteParams = {
-    pokemon: Pokemon;
+	pokemon: Pokemon;
 }
 
+const AboutRoute = ({pokemon}: { pokemon: Pokemon }) => (
+	<PokemonDetailsAbout pokemon={pokemon}/>
+);
+
+const StatsRoute = ({pokemon}: { pokemon: Pokemon }) => (
+	<PokemonDetailsStats pokemon={pokemon}/>
+);
+
+const EvolutionsRoute = ({pokemon}: { pokemon: Pokemon }) => (
+	<PokemonDetailsEvolution pokemon={pokemon}/>
+);
+
 export const PokemonDetails = () => {
-    const dispatch = useAppDispatch();
-    const route = useRoute();
-    const {pokemon} = route.params as RouteParams;
-    const isCaptured: boolean = useAppSelector((state: RootState) => state.pokedexSlice.capturedPokemonList.includes(pokemon.pokedex_id));
-    const [isShiny, setIsShiny] = React.useState(false);
+	const dispatch = useAppDispatch();
+	const route = useRoute();
+	const {pokemon} = route.params as RouteParams;
+	const isCaptured: boolean = useAppSelector((state: RootState) => state.pokedexSlice.capturedPokemonList.includes(pokemon.pokedex_id));
+	const [isShiny, setIsShiny] = React.useState(false);
 
+	const renderScene = ({route: sceneRoute}: { route: { key: string } }) => {
+		switch (sceneRoute.key) {
+			case 'About':
+				return <AboutRoute pokemon={pokemon}/>;
+			case 'Stats':
+				return <StatsRoute pokemon={pokemon}/>;
+			case 'Evolutions':
+				return <EvolutionsRoute pokemon={pokemon}/>;
+			default:
+				return null;
+		}
+	};
 
-    const AboutRoute = () => (
-        <PokemonDetailsAbout pokemon={pokemon}/>
-    );
+	const layout = useWindowDimensions();
 
-    const StatsRoute = () => (
-        <PokemonDetailsStats pokemon={pokemon}/>
-    );
+	const [routeIndex, setRouteIndex] = useState(0);
+	const [routes, setRoutes] = useState([
+		{key: 'About', title: 'A propos'},
+		{key: 'Stats', title: 'Statistiques'},
+		{key: 'Evolutions', title: 'Evolutions'},
+	]);
 
-    const EvolutionsRoute = () => (
-        <PokemonDetailsEvolution pokemon={pokemon}/>
-    );
+	useEffect(() => {
+		if ((Object.keys(pokemon.stats).length <= 0)) {
+			setRoutes(routes.filter(currentRoute => currentRoute.key !== 'Stats'));
 
-    const renderScene = SceneMap({
-        About: AboutRoute,
-        Stats: StatsRoute,
-        Evolutions: EvolutionsRoute,
-    });
+		}
+		if ((Object.keys(pokemon.evolution).length <= 0)) {
+			setRoutes(routes.filter(currentRoute => currentRoute.key !== 'Evolutions'));
+		}
+	}, [pokemon]);
 
-    const layout = useWindowDimensions();
+	return (
+		<>
+			<View style={styles.container}>
+				<TouchableOpacity style={[styles.shinyButton]} onPress={() => {
+					setIsShiny(!isShiny);
+				}}>
+					<Icon name={isShiny ? 'star' : 'star-outline'} size={20} color={'black'}/>
+				</TouchableOpacity>
 
-    const [index, setIndex] = useState(0);
-    const [routes] = useState([
-        {key: 'About', title: 'About'},
-        {key: 'Stats', title: 'Stats'},
-        {key: 'Evolutions', title: 'Evolutions'},
-    ]);
+				<View style={GlobalStyles.horizontalCenter}>
+					<Image
+						source={{uri: isShiny ? pokemon.sprites.shiny : pokemon.sprites.regular}}
+						style={{width: 300, height: 300}}/>
+				</View>
+				<TouchableOpacity
+					style={isCaptured ? styles.onStyle : styles.offStyle}
+					onPress={() => dispatch(togglePokemonCaptured(pokemon.pokedex_id))}>
 
-    return (
-        <>
-            <View style={styles.container}>
-                <TouchableOpacity style={[styles.shinyButton]}
-                                  onPress={() => {
-                                      setIsShiny(!isShiny);
-                                  }}>
-                    <Icon name={isShiny ? 'star' : 'star-outline'} size={20} color={'black'}/>
-                </TouchableOpacity>
+					<Text>{isCaptured ? 'Retirer de la collection' : 'Ajouter a la collection'}</Text>
 
-                <View style={GlobalStyles.horizontalCenter}>
-                    <Image
-                        source={{uri: isShiny ? pokemon.sprites.shiny : pokemon.sprites.regular}}
-                        style={{width: 300, height: 300}}/>
-                </View>
-                <TouchableOpacity style={isCaptured ? styles.onStyle : styles.offStyle}
-                                  onPress={() => dispatch(togglePokemonCaptured(pokemon.pokedex_id))}>
-                    <Text>{'Ajouter à l\'équipe'}</Text>
-                </TouchableOpacity>
+				</TouchableOpacity>
 
-                <Text style={GlobalStyles.title}>{pokemon.name.fr}</Text>
+				<Text style={GlobalStyles.title}>{pokemon.name.fr}</Text>
 
-                <Text>№ {String(pokemon.pokedex_id).padStart(3, '0')} - Génération {pokemon.generation}</Text>
+				<Text>№ {String(pokemon.pokedex_id).padStart(3, '0')} - Génération {pokemon.generation}</Text>
 
-                <FlatList
-                    scrollEnabled={false}
-                    data={pokemon.types}
-                    numColumns={2}
-                    renderItem={({item}) =>
-                        <TypeCard type={item}/>
-                    }
-                    keyExtractor={(item, index: number) => item.name + index.toString()}/>
-            </View>
+				<FlatList
+					scrollEnabled={false}
+					data={pokemon.types}
+					numColumns={2}
+					renderItem={({item}) =>
+						<TypeCard type={item}/>
+					}
+					keyExtractor={(item, index: number) => item.name + index.toString()}/>
+			</View>
 
-            <TabView
-                navigationState={{index, routes}}
-                renderScene={renderScene}
-                onIndexChange={setIndex}
-                initialLayout={{width: layout.width}}
-            />
-        </>
-    );
+			<TabView
+				navigationState={{index: routeIndex, routes}}
+				renderScene={renderScene}
+				onIndexChange={setRouteIndex}
+				initialLayout={{width: layout.width}}
+			/>
+		</>
+	);
 };
 
 const styles = StyleSheet.create({
-    container: {
-        paddingHorizontal: 10,
-    },
-    onStyle: {
-        backgroundColor: 'green',
-    },
-    offStyle: {
-        backgroundColor: 'red',
-    },
-    text: {},
-    shinyButton: {
-        position: 'absolute',
-        top: 20,
-        right: 20,
-        borderRadius: 50,
-        padding: 10,
-        borderWidth: 1,
-    },
+	container: {
+		paddingHorizontal: 10,
+	},
+	onStyle: {
+		backgroundColor: 'green',
+	},
+	offStyle: {
+		backgroundColor: 'red',
+	},
+	text: {},
+	shinyButton: {
+		position: 'absolute',
+		top: 20,
+		right: 20,
+		borderRadius: 50,
+		padding: 10,
+		borderWidth: 1,
+	},
 });
