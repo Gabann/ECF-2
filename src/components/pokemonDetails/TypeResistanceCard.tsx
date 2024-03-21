@@ -31,8 +31,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		margin: 5,
 		padding: 0,
-		width: 70,
+		width: 65,
 		height: 50,
 	},
-
 });

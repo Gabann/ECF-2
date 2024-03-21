@@ -99,26 +99,37 @@ export const PokemonDetails = () => {
 						source={{uri: isShiny ? pokemon.sprites.shiny : pokemon.sprites.regular}}
 						style={{width: 300, height: 300}}/>
 				</View>
-				<TouchableOpacity
-					style={isCaptured ? styles.onStyle : styles.offStyle}
-					onPress={() => dispatch(togglePokemonCaptured(pokemon.pokedex_id))}>
 
-					<Text>{isCaptured ? 'Retirer de la collection' : 'Ajouter a la collection'}</Text>
+				<View style={{flexDirection: 'row', alignItems: 'center'}}>
+					<View style={{flexDirection: 'column'}}>
+						<Text style={GlobalStyles.title}>{pokemon.name.fr}</Text>
 
-				</TouchableOpacity>
+						<Text>№ {String(pokemon.pokedex_id).padStart(3, '0')} - Génération {pokemon.generation}</Text>
 
-				<Text style={GlobalStyles.title}>{pokemon.name.fr}</Text>
+						<FlatList
+							scrollEnabled={false}
+							data={pokemon.types}
+							numColumns={2}
+							renderItem={({item}) =>
+								<TypeCard type={item}/>
+							}
+							keyExtractor={(item, index: number) => item.name + index.toString()}
+						/>
+					</View>
 
-				<Text>№ {String(pokemon.pokedex_id).padStart(3, '0')} - Génération {pokemon.generation}</Text>
-
-				<FlatList
-					scrollEnabled={false}
-					data={pokemon.types}
-					numColumns={2}
-					renderItem={({item}) =>
-						<TypeCard type={item}/>
-					}
-					keyExtractor={(item, index: number) => item.name + index.toString()}/>
+					<View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+						<TouchableOpacity
+							style={[isCaptured ? styles.onStyle : styles.offStyle, {
+								width: 150,
+								height: 30,
+								justifyContent: 'center',
+								alignItems: 'center',
+							}]}
+							onPress={() => dispatch(togglePokemonCaptured(pokemon.pokedex_id))}>
+							<Text>{isCaptured ? 'Retirer de la collection' : 'Ajouter a la collection'}</Text>
+						</TouchableOpacity>
+					</View>
+				</View>
 			</View>
 
 			<TabView
@@ -140,8 +151,7 @@ export const PokemonDetails = () => {
 
 const styles = StyleSheet.create({
 	container: {
-		paddingHorizontal: 10,
-		backgroundColor: 'rgba(166,46,46,0.5)',
+		padding: 10,
 	},
 	onStyle: {
 		backgroundColor: 'green',
@@ -149,7 +159,6 @@ const styles = StyleSheet.create({
 	offStyle: {
 		backgroundColor: 'red',
 	},
-	text: {},
 	shinyButton: {
 		position: 'absolute',
 		top: 20,

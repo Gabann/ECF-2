@@ -139,6 +139,7 @@ Connect your android device or emulator and run the app with `npm run android`
 
 ## Roadmap
 
+- [ ] Convert components inlay style to stylesheet style
 - [ ] IOS port
 - [ ] Light & Dark mode
 - [ ] Polish style to flat, modern design

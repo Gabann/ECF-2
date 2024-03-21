@@ -94,7 +94,7 @@ export const PokemonDetailsStats: React.FC<Props> = ({pokemon}) => {
 			<FlatList
 				data={pokemon.resistances}
 				scrollEnabled={false}
-				numColumns={5}
+				numColumns={6}
 				keyExtractor={(item, index) => index.toString()}
 				renderItem={({item}) => <TypeResistanceCard type={item.name} resistance={item.multiplier.toString()}/>}
 				contentContainerStyle={{alignItems: 'center', justifyContent: 'center'}}

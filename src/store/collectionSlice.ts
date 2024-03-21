@@ -6,6 +6,7 @@ export interface IPokedexSliceSate {
 	capturedPokemonList: number[];
 }
 
+//BUG captured pokemon data is lost if a new pokemon is captured before running this function (done by loading the collection screen)
 export const loadPokemonList = createAsyncThunk(
 	'pokedex/loadPokemonList',
 	async () => {

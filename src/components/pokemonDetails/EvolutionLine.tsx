@@ -18,18 +18,24 @@ export const EvolutionLine: React.FC<Props> = ({nextEvolutions, currentPokemonSp
 		return pokemonList.find(pokemon => pokemon.pokedex_id === pokedex_id);
 	}
 
+	//TODO export flatlist to a separate component
+	//BUG Evolution line display overflow outside the screen if the condition is too long
 	return (
-		<View style={{flexDirection: 'row', alignItems: 'center'}}>
+		<View style={{flexDirection: 'row', alignItems: 'center', paddingVertical: 100, paddingHorizontal: 20}}>
 			<FlatList
 				data={previousEvolutions}
+				contentContainerStyle={{justifyContent: 'center', alignItems: 'center'}}
+				horizontal={true}
 				keyExtractor={(item, index) => index.toString()}
 				renderItem={({item}) => {
 					const pokemon = getPokemonById(item.pokedex_id);
 					return pokemon ? (
 						<>
-							<Text> {'<------'} </Text>
-							<Text>{item.condition}</Text>
-							<PokemonCard pokemon={pokemon}/>
+							<PokemonCard imageHeight={50} imageWidth={50} componentWidth={80} componentHeight={80} pokemon={pokemon}/>
+							<View style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+								<Text> {'<------'} </Text>
+								<Text>{item.condition}</Text>
+							</View>
 						</>
 					) : null;
 				}}
@@ -42,13 +48,16 @@ export const EvolutionLine: React.FC<Props> = ({nextEvolutions, currentPokemonSp
 			<FlatList
 				data={nextEvolutions}
 				keyExtractor={(item, index) => index.toString()}
+				horizontal={true}
 				renderItem={({item}) => {
 					const pokemon = getPokemonById(item.pokedex_id);
 					return pokemon ? (
 						<>
-							<Text> {'------>'} </Text>
-							<Text>{item.condition}</Text>
-							<PokemonCard pokemon={pokemon}/>
+							<View style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+								<Text> {'------>'} </Text>
+								<Text>{item.condition}</Text>
+							</View>
+							<PokemonCard imageHeight={50} imageWidth={50} componentWidth={80} componentHeight={80} pokemon={pokemon}/>
 						</>
 					) : null;
 				}}
