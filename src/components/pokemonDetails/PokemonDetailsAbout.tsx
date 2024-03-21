@@ -10,6 +10,7 @@ type Props = {
 }
 
 export const PokemonDetailsAbout: React.FC<Props> = ({pokemon}) => {
+
 	return (
 		<View style={styles.container}>
 
@@ -19,7 +20,15 @@ export const PokemonDetailsAbout: React.FC<Props> = ({pokemon}) => {
 			</View>
 			<View style={styles.rowCenter}>
 				<PokemonDetailsSubstats icon="format-list-bulleted-square" text="Catégorie" value={pokemon.category}/>
-				<PokemonDetailsSubstats icon="pokeball" text="Talents" value={pokemon.talents.map(talent => talent.name).join()}/>
+				<PokemonDetailsSubstats icon="weather-sunny" text="Talents" value={pokemon.talents.map(talent => talent.name).join()}/>
+			</View>
+
+			<View style={styles.rowCenter}>
+				<PokemonDetailsSubstats icon="pokeball" text="Taux capture" value={pokemon.catchRate.toString()}/>
+				<PokemonDetailsSubstats
+					icon="star-four-points"
+					text="Xp lvl 100"
+					value={pokemon.xpToLevel100.toLocaleString('us').toString()}/>
 			</View>
 
 			{/*Null check for pokemon.sexe*/}
@@ -27,7 +36,8 @@ export const PokemonDetailsAbout: React.FC<Props> = ({pokemon}) => {
 				<>
 					<View style={styles.rowCenterAlign}>
 						<View>
-							<Text style={[GlobalStyles.verticalCenter, styles.centerText, styles.blackText]}>Sexe</Text>
+							<Text
+								style={[GlobalStyles.verticalCenter, styles.centerText, styles.blackText, {paddingBottom: 10}]}>Sexe</Text>
 							<Progress.Bar
 								progress={pokemon.sexe.female / 100}
 								color={'#FF59B8'}
@@ -51,6 +61,7 @@ export const PokemonDetailsAbout: React.FC<Props> = ({pokemon}) => {
 const styles = StyleSheet.create({
 	container: {
 		paddingHorizontal: 10,
+		paddingVertical: 20,
 	},
 	onStyle: {
 		backgroundColor: 'green',

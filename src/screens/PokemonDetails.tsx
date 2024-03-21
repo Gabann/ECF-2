@@ -1,5 +1,5 @@
 import {FlatList, Image, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View} from 'react-native';
-import {TabView} from 'react-native-tab-view';
+import {TabBar, TabView} from 'react-native-tab-view';
 import React, {useEffect, useState} from 'react';
 import {Pokemon} from '../classes/Pokemon.ts';
 import {useRoute} from '@react-navigation/native';
@@ -12,6 +12,7 @@ import {PokemonDetailsAbout} from '../components/pokemonDetails/PokemonDetailsAb
 import {PokemonDetailsStats} from '../components/pokemonDetails/PokemonDetailsStats.tsx';
 import {PokemonDetailsEvolution} from '../components/pokemonDetails/PokemonDetailsEvolution.tsx';
 import {TypeCard} from '../components/pokemonDetails/TypeCard.tsx';
+import {typeColors} from '../assets/globals.ts';
 
 type RouteParams = {
 	pokemon: Pokemon;
@@ -68,9 +69,25 @@ export const PokemonDetails = () => {
 		}
 	}, [pokemon]);
 
+	function hexToRgba(hex: string, opacity: number) {
+		const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+		if (result) {
+			const r = parseInt(result[1], 16);
+			const g = parseInt(result[2], 16);
+			const b = parseInt(result[3], 16);
+			return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+		}
+		return '';
+	}
+
+	let backgroundColor = '';
+	if (pokemon.types.length > 0) {
+		backgroundColor = hexToRgba(typeColors[pokemon.types[0].name], 0.60);
+	}
+
 	return (
 		<>
-			<View style={styles.container}>
+			<View style={[styles.container, {backgroundColor: backgroundColor}]}>
 				<TouchableOpacity style={[styles.shinyButton]} onPress={() => {
 					setIsShiny(!isShiny);
 				}}>
@@ -109,6 +126,13 @@ export const PokemonDetails = () => {
 				renderScene={renderScene}
 				onIndexChange={setRouteIndex}
 				initialLayout={{width: layout.width}}
+				style={{backgroundColor: 'white', borderRadius: 10}}
+				renderTabBar={props => <TabBar
+					{...props}
+					activeColor={'black'}
+					inactiveColor={'lightgrey'}
+					indicatorStyle={{backgroundColor: 'blue'}}
+					style={{backgroundColor: 'white'}}/>}
 			/>
 		</>
 	);
@@ -117,6 +141,7 @@ export const PokemonDetails = () => {
 const styles = StyleSheet.create({
 	container: {
 		paddingHorizontal: 10,
+		backgroundColor: 'rgba(166,46,46,0.5)',
 	},
 	onStyle: {
 		backgroundColor: 'green',

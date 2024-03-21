@@ -9,6 +9,7 @@ import {store} from './src/store/store.ts';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {Debug} from './src/components/Debug.tsx';
 
 
 const PokedexStack = createNativeStackNavigator();
@@ -67,7 +68,7 @@ export default function App(): React.JSX.Element {
 					</Tab.Navigator>
 				</Provider>
 			</NavigationContainer>
-			{/*<Debug/> */}
+			<Debug/>
 		</>
 	);
 }

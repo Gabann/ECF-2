@@ -1,4 +1,4 @@
-import {FlatList, Text} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
 import React from 'react';
 import * as Progress from 'react-native-progress';
 import {Pokemon} from '../../classes/Pokemon.ts';
@@ -12,49 +12,82 @@ export const PokemonDetailsStats: React.FC<Props> = ({pokemon}) => {
 	return (
 		<>
 			{/*Null check for pokemon.stats*/}
-			{Object.keys(pokemon.sexe).length > 0 ? (
+			{Object.keys(pokemon.stats).length > 0 ? (
 				<>
-					<Text>PV: {pokemon.stats.hp}</Text>
-					<Progress.Bar
-						progress={pokemon.stats.hp / 255}
-						color={'#0B97FF'}
-						borderWidth={1}
-						width={400}/>
+					<View style={{flexDirection: 'row', justifyContent: 'center', paddingVertical: 10}}>
+						<View style={{width: '40%', paddingRight: 10}}>
+							<Text style={{textAlign: 'center'}}>PV: {pokemon.stats.hp}</Text>
+							<Progress.Bar
+								progress={pokemon.stats.hp / 255}
+								color={'#0B97FF'}
+								borderWidth={1}
+								width={180}
+								height={10}
+							/>
+						</View>
 
-					<Text>Attaque: {pokemon.stats.atk}</Text>
-					<Progress.Bar
-						progress={pokemon.stats.atk / 255}
-						color={'#0B97FF'}
-						borderWidth={1}
-						width={400}/>
+						<View style={{width: '40%', paddingLeft: 10}}>
+							<Text style={{textAlign: 'center'}}>Attaque: {pokemon.stats.atk}</Text>
+							<Progress.Bar
+								progress={pokemon.stats.atk / 255}
+								color={'#0B97FF'}
+								borderWidth={1}
+								width={180}
+								height={10}
+							/>
+						</View>
+					</View>
 
-					<Text>Defense: {pokemon.stats.def}</Text>
-					<Progress.Bar
-						progress={pokemon.stats.def / 255}
-						color={'#0B97FF'}
-						borderWidth={1}
-						width={400}/>
 
-					<Text>Attaque spéciale: {pokemon.stats.spe_atk}</Text>
-					<Progress.Bar
-						progress={pokemon.stats.spe_atk / 255}
-						color={'#0B97FF'}
-						borderWidth={1}
-						width={400}/>
+					<View style={{flexDirection: 'row', justifyContent: 'center', paddingVertical: 10}}>
+						<View style={{width: '40%', paddingRight: 10}}>
+							<Text style={{textAlign: 'center'}}>Defense: {pokemon.stats.def}</Text>
+							<Progress.Bar
+								progress={pokemon.stats.def / 255}
+								color={'#0B97FF'}
+								borderWidth={1}
+								width={180}
+								height={10}
+							/>
+						</View>
 
-					<Text>Defense spéciale: {pokemon.stats.spe_def}</Text>
-					<Progress.Bar
-						progress={pokemon.stats.spe_def / 255}
-						color={'#0B97FF'}
-						borderWidth={1}
-						width={400}/>
+						<View style={{width: '40%', paddingLeft: 10}}>
+							<Text style={{textAlign: 'center'}}>Attaque spe: {pokemon.stats.spe_atk}</Text>
+							<Progress.Bar
+								progress={pokemon.stats.spe_atk / 255}
+								color={'#0B97FF'}
+								borderWidth={1}
+								width={180}
+								height={10}
+							/>
+						</View>
+					</View>
 
-					<Text>Vitesse: {pokemon.stats.vit}</Text>
-					<Progress.Bar
-						progress={pokemon.stats.vit / 255}
-						color={'#0B97FF'}
-						borderWidth={1}
-						width={400}/>
+
+					<View style={{flexDirection: 'row', justifyContent: 'center', paddingVertical: 10}}>
+						<View style={{width: '40%', paddingRight: 10}}>
+							<Text style={{textAlign: 'center'}}>Defense spe: {pokemon.stats.spe_def}</Text>
+							<Progress.Bar
+								progress={pokemon.stats.spe_def / 255}
+								color={'#0B97FF'}
+								borderWidth={1}
+								width={180}
+								height={10}
+							/>
+						</View>
+
+						<View style={{width: '40%', paddingLeft: 10}}>
+							<Text style={{textAlign: 'center'}}>Vitesse: {pokemon.stats.vit}</Text>
+							<Progress.Bar
+								progress={pokemon.stats.vit / 255}
+								color={'#0B97FF'}
+								borderWidth={1}
+								width={180}
+								height={10}
+							/>
+						</View>
+					</View>
+
 				</>
 			) : null}
 

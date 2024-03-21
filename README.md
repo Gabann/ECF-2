@@ -75,10 +75,13 @@ Tech stack:
 
 [![React][ReactBadge]][ReactUrl]
 [![React native][ReactNativeBadge]][ReactNativeUrl]
+[![React Navigation][ReactNavigationBadge]][ReactNavigationUrl]
 [![Redux][ReduxBadge]][ReduxUrl]
+[![Node.js][NodeBadge]][NodeUrl]
 [![Typescript][TypescriptBadge]][TypescriptUrl]
 [![Android Studio][AndroidStudioBadge]][AndroidStudioUrl]
-[![Node.js][NodeBadge]][NodeUrl]
+[![ESLint][EsLintBadge]][EsLintUrl]
+[![SonarLint][SonarLintBadge]][SonarLintUrl]
 
 Data from [Tyradex](https://tyradex.tech/) API
 
@@ -217,6 +220,18 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/Gabann/ECF
 [NodeBadge]: https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white&style=for-the-badge
 
 [NodeUrl]: https://nodejs.org/
+
+[EsLintBadge]: https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white&style=for-the-badge
+
+[EsLintUrl]: https://eslint.org/
+
+[SonarLintBadge]: https://img.shields.io/badge/SonarLint-CB2029?logo=sonarlint&logoColor=white&style=for-the-badge
+
+[SonarLintUrl]: https://www.sonarlint.org/
+
+[ReactNavigationBadge]: https://img.shields.io/badge/ReactNavigation-000?logo=react&logoColor=61DAFB&style=for-the-badge
+
+[ReactNavigationUrl]: https://reactnavigation.org/
 
 [repo-link]: https://github.com/Gabann/ECF-2
 
