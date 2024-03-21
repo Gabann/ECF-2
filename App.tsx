@@ -8,7 +8,6 @@ import {PokemonCollectionView} from './src/screens/PokemonCollectionView.tsx';
 import {store} from './src/store/store.ts';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
-import {Debug} from './src/components/Debug.tsx';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
@@ -26,7 +25,7 @@ function PokedexScreen() {
     return (
         <PokedexStack.Navigator>
             <PokedexStack.Screen name="PokedexView" component={PokedexView} options={{headerShown: false}}/>
-            <PokedexStack.Screen name="PokemonDetails" component={PokemonDetails}/>
+            <PokedexStack.Screen name="PokemonDetails" component={PokemonDetails} options={{headerShown: false}}/>
         </PokedexStack.Navigator>
     );
 }
@@ -45,7 +44,6 @@ export default function App(): React.JSX.Element {
         <>
             <NavigationContainer>
                 <Provider store={store}>
-                    {/*<TabviewTest/>*/}
                     <Tab.Navigator screenOptions={{
                         tabBarActiveTintColor: 'red',
                         headerShown: false,
@@ -69,7 +67,7 @@ export default function App(): React.JSX.Element {
                     </Tab.Navigator>
                 </Provider>
             </NavigationContainer>
-            <Debug/>
+            {/*<Debug/>*/}
         </>
 
     );

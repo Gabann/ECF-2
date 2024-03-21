@@ -1,4 +1,15 @@
 export type Evolution = {
+    pre: EvolutionData[] | null;
+    next: EvolutionData[] | null;
+    mega: MegaEvolutionData | null;
+}
+
+export type MegaEvolutionData = {
+    orbe: string;
+    sprites: Sprites;
+}
+
+export type EvolutionData = {
     pokedex_id: number;
     name: string;
     condition: string;
@@ -60,7 +71,7 @@ export class Pokemon {
     talents: Talents[];
     stats: Stats;
     resistances: Resistances[];
-    evolution: Evolution[];
+    evolution: Evolution;
     height: number;
     weight: number;
     egg_group: string[];
@@ -79,7 +90,7 @@ export class Pokemon {
         talents: Talents[],
         stats: Stats,
         resistances: Resistances[],
-        evolution: Evolution[],
+        evolution: Evolution,
         height: number,
         weight: number,
         egg_group: string[],

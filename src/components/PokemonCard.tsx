@@ -20,11 +20,9 @@ export const PokemonCard: React.FC<Props> = ({pokemon}) => {
 
     let colors = ['#FFFFFF', '#FFFFFF'];
 
-    colors[0] = typeColors[pokemon.types[0].name];
-    if (pokemon.types.length < 2) {
-        colors[1] = colors[0];
-    } else {
-        colors[1] = typeColors[pokemon.types[1].name];
+    if (pokemon.types.length > 0) {
+        colors[0] = typeColors[pokemon.types[0].name];
+        colors[1] = pokemon.types.length < 2 ? colors[0] : typeColors[pokemon.types[1].name];
     }
 
     return (

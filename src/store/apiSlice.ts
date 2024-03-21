@@ -31,7 +31,7 @@ async function formatApiResponse(response: Response): Promise<Pokemon[]> {
             pokemon.talents || [],
             pokemon.stats || {},
             pokemon.resistances || [],
-            pokemon.evolution || [],
+            pokemon.evolution || {},
             pokemon.height || 0,
             pokemon.weight || 0,
             pokemon.egg_group || [],
@@ -56,7 +56,7 @@ export const getAllPokemons = createAsyncThunk(
         } else {
             try {
                 console.log('used api');
-                let response = await fetch(apiBaseUrl + 'gen/1');
+                let response = await fetch(apiBaseUrl + 'pokemon');
                 let formattedResponse: Pokemon[] = await formatApiResponse(response);
                 await AsyncStorage.setItem('allPokemons', JSON.stringify(formattedResponse));
                 return formattedResponse;

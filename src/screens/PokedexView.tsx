@@ -1,6 +1,5 @@
-import {FlatList, ScrollView, StyleSheet, TextInput, View} from 'react-native';
+import {FlatList, StyleSheet, TextInput, View} from 'react-native';
 import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
-import {getAllPokemons} from '../store/apiSlice.ts';
 import React, {useEffect, useState} from 'react';
 import {Pokemon} from '../classes/Pokemon.ts';
 import {PokemonCard} from '../components/PokemonCard.tsx';
@@ -8,6 +7,7 @@ import {TypeFilterButton} from '../components/TypeFilterButton.tsx';
 import {pokemonTypes} from '../assets/globals.ts';
 import {RootState} from '../store/store.ts';
 import {GlobalStyles} from '../assets/globalStyles.ts';
+import {getAllPokemons} from '../store/apiSlice.ts';
 
 export const PokedexView = () => {
     const dispatch = useAppDispatch();
@@ -30,9 +30,9 @@ export const PokedexView = () => {
     useEffect((): void => {
         (async (): Promise<void> => {
             try {
-                await dispatch(getAllPokemons()).unwrap();
+                await dispatch(getAllPokemons());
             } catch (error) {
-                console.error('Failed to fetch pokemons: ', error);
+                console.error('Failed to fetch pokemons list: ', error);
             }
         })();
     }, []);
@@ -70,30 +70,23 @@ export const PokedexView = () => {
     }
 
     return (
-        <ScrollView>
-            <TextInput
-                style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-                onChangeText={text => onNameFilterChange(text)}
-                value={nameFilter}
-            />
-
-            {/*<FlatList*/}
-            {/*    contentContainerStyle={styles.typeList}*/}
-            {/*    scrollEnabled={false}*/}
-            {/*    data={pokemonTypes}*/}
-            {/*    renderItem={({item}) => <TypeFilterButton type={item} toggleTypeFilter={toggleTypeFilter}></TypeFilterButton>}*/}
-            {/*    keyExtractor={(item) => item}*/}
-            {/*/>*/}
-
-            <View style={[styles.typeList, GlobalStyles.horizontalCenter]}>
+        <View style={[GlobalStyles.verticalCenter, GlobalStyles.horizontalCenter, {paddingTop: 15}]}>
+            <View style={styles.typeList}>
                 {pokemonTypes.map((item: string) => (
                     <TypeFilterButton key={item} type={item} toggleTypeFilter={toggleTypeFilter}/>
                 ))}
             </View>
 
+            <TextInput
+                style={{height: 40, borderWidth: 1, width: 200, marginBottom: 10}}
+                onChangeText={text => onNameFilterChange(text)}
+                value={nameFilter}
+                placeholder={'Nom ou numéro du pokémon'}
+            />
+
             <FlatList
                 contentContainerStyle={{alignItems: 'center'}}
-                scrollEnabled={false}
+                scrollEnabled={true}
                 data={filteredList}
                 numColumns={3}
                 renderItem={({item}) => (
@@ -101,7 +94,7 @@ export const PokedexView = () => {
                 )}
                 keyExtractor={(item: Pokemon) => item.pokedex_id.toString()}
             />
-        </ScrollView>
+        </View>
     );
 };
 
