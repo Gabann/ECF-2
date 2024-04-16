@@ -13,7 +13,7 @@
 
 <div align="center">
   <p>
-    An android app that let explore a pokedex and track all your captured pokemons
+    An android app that let you explore a pokedex and track all your captured pokemons
     <br />
     <a href="https://github.com/Gabann/ECF-2/tree/69091fd8c1a8b580d59ac3888c192f47f9ec7ae2/documentation"><strong>Explore the docs »</strong></a>
     <br />
